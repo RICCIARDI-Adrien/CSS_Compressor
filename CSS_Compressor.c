@@ -148,6 +148,13 @@ int main(int argc, char *argv[])
 		
 		switch (Character)
 		{
+			// Remove new line characters
+			case '\n':
+				#if CSS_COMPRESSOR_IS_DEBUG_ENABLED
+					printf("[%s] Removed new line character.\n", __FUNCTION__);
+				#endif
+				break;
+			
 			case '/':
 				CSSCompressorHandleComment();
 				break;
