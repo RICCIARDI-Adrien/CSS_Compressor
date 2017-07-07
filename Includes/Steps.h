@@ -16,4 +16,12 @@
  */
 void StepRemoveComments(char *Pointer_Input_Buffer, int Input_Buffer_Size, char *Pointer_Output_Buffer, int *Pointer_Output_Buffer_Size);
 
+/** Remove all new line characters.
+ * @param Pointer_Input_Buffer The buffer containing the CSS data with line feeds.
+ * @param Input_Buffer_Size Input buffer size in bytes.
+ * @param Pointer_Output_Buffer On output, contain the CSS data without line feeds.
+ * @param Pointer_Output_Buffer_Size On output, contain the output buffer size in bytes.
+ */
+void StepRemoveLineFeeds(char *Pointer_Input_Buffer, int Input_Buffer_Size, char *Pointer_Output_Buffer, int *Pointer_Output_Buffer_Size);
+
 #endif

@@ -10,7 +10,7 @@
 //-------------------------------------------------------------------------------------------------
 void StepRemoveComments(char *Pointer_Input_Buffer, int Input_Buffer_Size, char *Pointer_Output_Buffer, int *Pointer_Output_Buffer_Size)
 {
-	char Character = 0;
+	char Character;
 	int Is_Previous_Character_A_Star = 0, Output_Size = 0;
 	
 	while (Input_Buffer_Size > 0)
