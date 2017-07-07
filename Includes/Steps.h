@@ -32,4 +32,12 @@ void StepRemoveLineFeeds(char *Pointer_Input_Buffer, int Input_Buffer_Size, char
  */
 void StepRemoveLastSemicolon(char *Pointer_Input_Buffer, int Input_Buffer_Size, char *Pointer_Output_Buffer, int *Pointer_Output_Buffer_Size);
 
+/** Replace all tabs by spaces to ease the other steps (they have only to search for spaces).
+ * @param Pointer_Input_Buffer The buffer containing the CSS data with mixed tabs and spaces.
+ * @param Input_Buffer_Size Input buffer size in bytes.
+ * @param Pointer_Output_Buffer On output, contain the CSS data without any tab character.
+ * @param Pointer_Output_Buffer_Size On output, contain the output buffer size in bytes.
+ */
+void StepUnifySpaces(char *Pointer_Input_Buffer, int Input_Buffer_Size, char *Pointer_Output_Buffer, int *Pointer_Output_Buffer_Size);
+
 #endif

@@ -5,7 +5,7 @@ CC = gcc
 CCFLAGS = -W -Wall
 
 BINARY = css-compressor
-SOURCES = $(PATH_SOURCES)/Step_Remove_Comments.c $(PATH_SOURCES)/Step_Remove_Last_Semicolon.c $(PATH_SOURCES)/Step_Remove_Line_Feeds.c $(PATH_SOURCES)/Main.c
+SOURCES = $(PATH_SOURCES)/Main.c $(PATH_SOURCES)/Step_Remove_Comments.c $(PATH_SOURCES)/Step_Remove_Last_Semicolon.c $(PATH_SOURCES)/Step_Remove_Line_Feeds.c $(PATH_SOURCES)/Step_Unify_Spaces.c
 
 release: CCFLAGS += -DCSS_COMPRESSOR_IS_DEBUG_ENABLED=0
 release: all

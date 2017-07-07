@@ -64,18 +64,20 @@ int main(int argc, char *argv[])
 	}
 	close(File_Descriptor);
 	
-	// TODO replace all tabs by spaces to ease the following code
+	// Replace all tabs by spaces to ease the following steps
+	StepUnifySpaces(Main_Buffer_1, Buffer_1_Size, Main_Buffer_2, &Buffer_2_Size);
 	
 	// Remove comments
 	printf("Removing comments...\n");
-	StepRemoveComments(Main_Buffer_1, Buffer_1_Size, Main_Buffer_2, &Buffer_2_Size);
+	StepRemoveComments(Main_Buffer_2, Buffer_2_Size, Main_Buffer_1, &Buffer_1_Size);
 	
 	// Remove last block property semicolon
 	printf("Removing unneeded semicolons...\n");
-	StepRemoveLastSemicolon(Main_Buffer_2, Buffer_2_Size, Main_Buffer_1, &Buffer_1_Size);
+	StepRemoveLastSemicolon(Main_Buffer_1, Buffer_1_Size, Main_Buffer_2, &Buffer_2_Size);
 	
 	// Remove new line characters
-	StepRemoveLineFeeds(Main_Buffer_1, Buffer_1_Size, Main_Buffer_2, &Buffer_2_Size);
+	printf("Removing line feeds...\n");
+	StepRemoveLineFeeds(Main_Buffer_2, Buffer_2_Size, Main_Buffer_1, &Buffer_1_Size);
 	
 	// Remove output file if existing to avoid merging its content with the new one that will be written
 	unlink(String_Output_File_Name);
@@ -89,7 +91,7 @@ int main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 	// Write whole content
-	if (write(File_Descriptor, Main_Buffer_2, Buffer_2_Size) != Buffer_2_Size)
+	if (write(File_Descriptor, Main_Buffer_1, Buffer_1_Size) != Buffer_1_Size)
 	{
 		printf("Error : failed to write the output file (%s).\n", strerror(errno));
 		close(File_Descriptor);
