@@ -71,13 +71,13 @@ int main(int argc, char *argv[])
 	printf("Removing comments...\n");
 	StepRemoveComments(Main_Buffer_2, Buffer_2_Size, Main_Buffer_1, &Buffer_1_Size);
 	
-	// Remove last block property semicolon
-	printf("Removing unneeded semicolons...\n");
-	StepRemoveLastSemicolon(Main_Buffer_1, Buffer_1_Size, Main_Buffer_2, &Buffer_2_Size);
-	
 	// Remove new line characters
 	printf("Removing line feeds...\n");
-	StepRemoveLineFeeds(Main_Buffer_2, Buffer_2_Size, Main_Buffer_1, &Buffer_1_Size);
+	StepRemoveLineFeeds(Main_Buffer_1, Buffer_1_Size, Main_Buffer_2, &Buffer_2_Size);
+	
+	// Remove last block property semicolon
+	printf("Removing unneeded semicolons...\n");
+	StepRemoveLastSemicolon(Main_Buffer_2, Buffer_2_Size, Main_Buffer_1, &Buffer_1_Size);
 	
 	// Remove output file if existing to avoid merging its content with the new one that will be written
 	unlink(String_Output_File_Name);

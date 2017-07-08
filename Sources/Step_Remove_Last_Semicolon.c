@@ -27,7 +27,7 @@ void StepRemoveLastSemicolon(char *Pointer_Input_Buffer, int Input_Buffer_Size, 
 			while (Input_Buffer_Size > 0)
 			{
 				Character = *Pointer_Input_Buffer;
-				if ((Character != ' ') && (Character != '\n')) break; // Also ignore new lines in case the line feeds removal step has not been done yet
+				if (Character != ' ') break;
 				Pointer_Input_Buffer++;
 				Input_Buffer_Size--;
 			}
