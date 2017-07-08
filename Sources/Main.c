@@ -79,6 +79,10 @@ int main(int argc, char *argv[])
 	printf("Removing unneeded semicolons...\n");
 	StepRemoveLastSemicolon(Main_Buffer_2, Buffer_2_Size, Main_Buffer_1, &Buffer_1_Size);
 	
+	// Remove all unneeded spaces
+	printf("Removing unneeded spaces...\n");
+	StepRemoveUnneededSpaces(Main_Buffer_1, Buffer_1_Size, Main_Buffer_2, &Buffer_2_Size);
+	
 	// Remove output file if existing to avoid merging its content with the new one that will be written
 	unlink(String_Output_File_Name);
 	
@@ -91,7 +95,7 @@ int main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 	// Write whole content
-	if (write(File_Descriptor, Main_Buffer_1, Buffer_1_Size) != Buffer_1_Size)
+	if (write(File_Descriptor, Main_Buffer_2, Buffer_2_Size) != Buffer_2_Size)
 	{
 		printf("Error : failed to write the output file (%s).\n", strerror(errno));
 		close(File_Descriptor);

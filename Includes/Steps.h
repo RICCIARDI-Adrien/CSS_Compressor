@@ -40,4 +40,12 @@ void StepRemoveLastSemicolon(char *Pointer_Input_Buffer, int Input_Buffer_Size, 
  */
 void StepUnifySpaces(char *Pointer_Input_Buffer, int Input_Buffer_Size, char *Pointer_Output_Buffer, int *Pointer_Output_Buffer_Size);
 
+/** Remove unneeded space characters.
+ * @param Pointer_Input_Buffer The buffer containing the CSS data with all space characters.
+ * @param Input_Buffer_Size Input buffer size in bytes.
+ * @param Pointer_Output_Buffer On output, contain the CSS data without unneeded space characters.
+ * @param Pointer_Output_Buffer_Size On output, contain the output buffer size in bytes.
+ */
+void StepRemoveUnneededSpaces(char *Pointer_Input_Buffer, int Input_Buffer_Size, char *Pointer_Output_Buffer, int *Pointer_Output_Buffer_Size);
+
 #endif
